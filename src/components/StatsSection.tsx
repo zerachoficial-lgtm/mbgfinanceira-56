@@ -1,53 +1,60 @@
 import { Calendar, Users, ThumbsUp, TrendingUp } from "lucide-react";
 import { useCountUp, formatLargeNumber } from "@/hooks/useCountUp";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const StatsSection = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 });
+
   const experienceCount = useCountUp({ 
     end: 10, 
     duration: 2000, 
     prefix: "+", 
-    suffix: "" 
+    suffix: "",
+    trigger: isVisible
   });
   
   const clientsCount = useCountUp({ 
     end: 5000, 
     duration: 2500, 
-    formatter: (value) => `${formatLargeNumber(value)}+`
+    formatter: (value) => `${formatLargeNumber(value)}+`,
+    trigger: isVisible
   });
   
   const satisfactionCount = useCountUp({ 
     end: 98, 
     duration: 2000, 
-    suffix: "%" 
+    suffix: "%",
+    trigger: isVisible
   });
   
   const creditCount = useCountUp({ 
     end: 50000000, 
     duration: 3000, 
-    formatter: (value) => `+${formatLargeNumber(value)}`
+    formatter: (value) => `+${formatLargeNumber(value)}`,
+    trigger: isVisible
   });
 
   const stats = [
     {
-      ...experienceCount,
+      value: experienceCount,
       icon: Calendar,
       label: "Anos de Experiência",
       color: "text-primary"
     },
     {
-      ...clientsCount, 
+      value: clientsCount, 
       icon: Users,
       label: "Clientes Atendidos",
       color: "text-primary"
     },
     {
-      ...satisfactionCount,
+      value: satisfactionCount,
       icon: ThumbsUp, 
       label: "Satisfação dos Clientes",
       color: "text-primary"
     },
     {
-      ...creditCount,
+      value: creditCount,
       icon: TrendingUp,
       label: "Crédito Liberado",
       color: "text-primary"
@@ -55,13 +62,12 @@ const StatsSection = () => {
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
       {stats.map((stat, index) => {
         const Icon = stat.icon;
         return (
           <div 
             key={index}
-            ref={index === 0 ? stat.ref : undefined}
             className={`animate-fade-in-up hover:scale-105 transition-transform duration-300`}
             style={{ animationDelay: `${index * 0.1}s` }}
           >

@@ -16,13 +16,13 @@ export const useCountUp = ({
   start = 0,
   suffix = '',
   prefix = '',
-  formatter
-}: UseCountUpOptions) => {
+  formatter,
+  trigger = false
+}: UseCountUpOptions & { trigger?: boolean }) => {
   const [count, setCount] = useState(start);
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 });
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!trigger) return;
 
     let startTime: number;
     let animationFrame: number;
@@ -51,7 +51,7 @@ export const useCountUp = ({
         cancelAnimationFrame(animationFrame);
       }
     };
-  }, [isVisible, end, duration, start]);
+  }, [trigger, end, duration, start]);
 
   const formatValue = () => {
     if (formatter) {
@@ -60,7 +60,7 @@ export const useCountUp = ({
     return `${prefix}${count.toLocaleString('pt-BR')}${suffix}`;
   };
 
-  return { ref, value: formatValue(), isVisible };
+  return formatValue();
 };
 
 export const formatLargeNumber = (num: number): string => {
