@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MBG Financeira Design System - Premium Financial Branding */
+
+@layer base {
+  :root {
+    /* MBG Brand Colors - HSL Values */
+    --mbg-black: 0 0% 0%;
+    --mbg-gold: 45 70% 52%;
+    --mbg-gold-light: 45 70% 65%;
+    --mbg-gold-dark: 45 70% 40%;
+    --mbg-white: 0 0% 100%;
+    --mbg-gray-light: 0 0% 97%;
+    --mbg-gray-medium: 0 0% 85%;
+    --mbg-gray-dark: 0 0% 20%;
+
+    /* Semantic Design Tokens */
+    --background: var(--mbg-black);
+    --foreground: var(--mbg-white);
+    
+    --primary: var(--mbg-gold);
+    --primary-foreground: var(--mbg-black);
+    --primary-light: var(--mbg-gold-light);
+    --primary-dark: var(--mbg-gold-dark);
+    
+    --secondary: var(--mbg-gray-dark);
+    --secondary-foreground: var(--mbg-white);
+    
+    --accent: var(--mbg-gold);
+    --accent-foreground: var(--mbg-black);
+    
+    --muted: var(--mbg-gray-dark);
+    --muted-foreground: var(--mbg-gray-medium);
+    
+    --card: 0 0% 5%;
+    --card-foreground: var(--mbg-white);
+    
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
+    --ring: var(--mbg-gold);
+    
+    /* MBG Premium Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(var(--mbg-gold)) 0%, hsl(var(--mbg-gold-light)) 100%);
+    --gradient-gold-radial: radial-gradient(ellipse at center, hsl(var(--mbg-gold) / 0.3) 0%, transparent 70%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--mbg-black)) 0%, hsl(0 0% 5%) 100%);
+    
+    /* MBG Premium Shadows */
+    --shadow-gold: 0 10px 40px hsl(var(--mbg-gold) / 0.3);
+    --shadow-gold-glow: 0 0 30px hsl(var(--mbg-gold) / 0.5);
+    --shadow-card: 0 20px 60px hsl(0 0% 0% / 0.5);
+    --shadow-elegant: 0 8px 32px hsl(0 0% 0% / 0.3);
+    
+    /* MBG Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gold: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    --radius: 12px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins antialiased;
+    background-image: var(--gradient-hero);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-primary;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-6xl lg:text-7xl leading-tight tracking-tight;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl leading-tight;
+  }
+  
+  h3 {
+    @apply text-xl md:text-2xl lg:text-3xl leading-tight;
+  }
+  
+  p {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+  
+  /* Premium Animation System */
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .animate-scale-in {
+      animation: scaleIn 0.6s ease-out forwards;
+    }
+    
+    .animate-gold-glow {
+      animation: goldGlow 2s ease-in-out infinite alternate;
+    }
+    
+    .animate-slide-in-left {
+      animation: slideInLeft 0.8s ease-out forwards;
+    }
+    
+    .animate-slide-in-right {
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+    
+    .animate-bounce-in {
+      animation: bounceIn 0.6s ease-out forwards;
+    }
+    
+    .animate-icon-glow:hover {
+      animation: iconGlow 0.6s ease-out;
+    }
+    
+    .animate-ripple {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .animate-ripple::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, hsl(var(--primary) / 0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    
+    .animate-ripple:active::before {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .animate-stagger-1 {
+      animation-delay: 0.1s;
+    }
+    
+    .animate-stagger-2 {
+      animation-delay: 0.2s;
+    }
+    
+    .animate-stagger-3 {
+      animation-delay: 0.3s;
+    }
+    
+    .animate-stagger-4 {
+      animation-delay: 0.4s;
+    }
+    
+    .animate-hover-lift {
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                  box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .animate-hover-lift:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: var(--shadow-elegant);
+    }
+    
+    .animate-hover-glow {
+      transition: box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .animate-hover-glow:hover {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes iconGlow {
+    0%, 100% {
+      filter: drop-shadow(0 0 0 transparent);
+    }
+    50% {
+      filter: drop-shadow(0 0 8px hsl(var(--primary) / 0.4));
+    }
+  }
+  
+  @keyframes goldGlow {
+    from {
+      box-shadow: var(--shadow-gold);
+    }
+    to {
+      box-shadow: var(--shadow-gold-glow);
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
