@@ -8,6 +8,7 @@ import {
   Clock,
   Award
 } from "lucide-react";
+import StatsSection from "./StatsSection";
 import { MBGButton } from "./ui/mbg-button";
 
 const SpecialistConsultation = () => {
@@ -138,20 +139,7 @@ const SpecialistConsultation = () => {
         </div>
 
         {/* Bottom Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="animate-fade-in-up animate-stagger-1">
-            <div className="text-3xl font-bold text-primary mb-2">+10</div>
-            <p className="text-muted-foreground">Anos de Experiência</p>
-          </div>
-          <div className="animate-fade-in-up animate-stagger-2">
-            <div className="text-3xl font-bold text-primary mb-2">5.000+</div>
-            <p className="text-muted-foreground">Clientes Atendidos</p>
-          </div>
-          <div className="animate-fade-in-up animate-stagger-3">
-            <div className="text-3xl font-bold text-primary mb-2">98%</div>
-            <p className="text-muted-foreground">Satisfação dos Clientes</p>
-          </div>
-        </div>
+        <StatsSection />
       </div>
     </section>
   );

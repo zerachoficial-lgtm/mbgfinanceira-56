@@ -15,7 +15,7 @@ import ServiceCard from "@/components/ServiceCard";
 import FeatureCard from "@/components/FeatureCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import SpecialistConsultation from "@/components/SpecialistConsultation";
-import Hero3D from "@/components/Hero3D";
+import Hero3DFinancial from "@/components/Hero3DFinancial";
 import { MBGButton } from "@/components/ui/mbg-button";
 import { useStaggeredAnimation } from "@/hooks/useScrollAnimation";
 import heroBackground from "@/assets/hero-bg-professional.jpg";
@@ -37,7 +37,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/75"></div>
         <div className="absolute inset-0 bg-gradient-gold-radial opacity-15"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"></div>
-        <Hero3D className="z-1" />
+        <Hero3DFinancial className="z-1" />
         <div className="container relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="mb-6 animate-fade-in-up">
@@ -52,7 +52,7 @@ const Index = () => {
             </p>
             <div className="animate-fade-in-up" style={{animationDelay: '0.4s'}}>
               <MBGButton asChild size="xl" className="shadow-gold-glow">
-                <a href="#simulacao">
+                <a href="https://wa.me/5511978419191?text=Olá! Gostaria de simular um crédito. Poderia me ajudar?" target="_blank" rel="noopener noreferrer">
                   Simule seu Crédito Agora
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
