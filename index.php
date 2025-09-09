@@ -48,7 +48,7 @@ get_header(); ?>
                     </svg>
                 </div>
                 <h3>Crédito Facilitado</h3>
-                <p>Acesse o crédito que você precisa com pagamentos semanais flexíveis e taxas justas. Processo rápido e sem complicação.</p>
+                <p>Acesse o crédito que você precisa com pagamentos semanais flexíveis e condições justas. Processo rápido e sem complicação.</p>
                 <a href="<?php echo home_url('/credito-pessoal'); ?>" class="mbg-button">Saiba Mais</a>
             </div>
             

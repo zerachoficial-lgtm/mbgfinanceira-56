@@ -166,7 +166,7 @@ const blogPosts = {
       <p>Oferecemos condições mais justas, processo simplificado e atendimento humanizado para ajudar você a alcançar seus objetivos.</p>
       
       <h2>Dicas Importantes</h2>
-      <p>Sempre compare taxas, leia todo o contrato, verifique se cabe no orçamento e tenha um plano para quitar antecipadamente.</p>
+      <p>Sempre compare condições, leia todo o contrato, verifique se cabe no orçamento e tenha um plano para quitar antecipadamente.</p>
       
       <h2>Conclusão</h2>
       <p>O crédito pessoal é uma ferramenta financeira. Como toda ferramenta, pode construir ou destruir, dependendo de como é usada.</p>

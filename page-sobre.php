@@ -95,7 +95,7 @@ require_once get_template_directory() . '/inc/components/specialist-consultation
                     <?php mbg_feature_card(
                         mbg_get_icon('shield'),
                         'Transparência',
-                        'Todas as condições são apresentadas de forma clara, sem taxas ocultas ou surpresas. Você sabe exatamente o que está contratando.'
+                        'Todas as condições são apresentadas de forma clara, sem custos ocultos ou surpresas. Você sabe exatamente o que está contratando.'
                     ); ?>
                 </div>
                 <div class="animate-scale-in" style="animation-delay: 0.2s">

@@ -72,9 +72,9 @@ require_once get_template_directory() . '/inc/components/specialist-consultation
                     <div class="w-16 h-16 bg-gradient-gold-radial rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gold">
                         <?php echo mbg_get_icon('dollar-sign'); ?>
                     </div>
-                    <h3 class="text-xl font-semibold text-primary mb-4">Taxa Justa</h3>
-                    <p class="text-3xl font-bold text-primary mb-2">1,5%</p>
-                    <p class="text-muted-foreground">ao mês</p>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Condições Justas</h3>
+                    <p class="text-lg font-semibold text-primary mb-2">Valores</p>
+                    <p class="text-muted-foreground">Transparentes</p>
                 </div>
 
                 <div class="bg-card border border-border rounded-lg p-8 shadow-elegant text-center hover:shadow-gold-glow transition-all duration-300 animate-scale-in" style="animation-delay: 0.2s">

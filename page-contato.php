@@ -220,8 +220,8 @@ require_once get_template_directory() . '/inc/components/page-banner.php';
                             'answer' => 'Absolutamente. Trabalhamos com instituições financeiras regulamentadas e todos os investimentos são devidamente registrados.'
                         ],
                         [
-                            'question' => 'Há taxa de abertura de conta?',
-                            'answer' => 'Não cobramos taxa de abertura, manutenção ou análise de crédito. Nossa política é transparência total.'
+                            'question' => 'Há custo de abertura ou manutenção?',
+                            'answer' => 'Não cobramos qualquer custo de abertura, manutenção ou análise. Nossa política é transparência total.'
                         ]
                     ];
 

@@ -66,9 +66,9 @@ const CreditPersonal = () => {
                 <div className="w-16 h-16 bg-gradient-gold-radial rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gold">
                   <DollarSign className="w-8 h-8 text-primary-foreground" />
                 </div>
-                <h3 className="text-xl font-semibold text-primary mb-4">Taxa Justa</h3>
-                <p className="text-3xl font-bold text-primary mb-2">1,5%</p>
-                <p className="text-muted-foreground">ao mês</p>
+                <h3 className="text-xl font-semibold text-primary mb-4">Condições Justas</h3>
+                <p className="text-lg font-semibold text-primary mb-2">Valores</p>
+                <p className="text-muted-foreground">Transparentes</p>
               </div>
 
               <div className="bg-card border border-border rounded-lg p-8 shadow-elegant text-center hover:shadow-gold-glow transition-all duration-300">

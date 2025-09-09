@@ -77,7 +77,7 @@ const Index = () => {
               <ServiceCard
                 icon={CreditCard}
                 title="Crédito Facilitado"
-                description="Acesse o crédito que você precisa com pagamentos semanais flexíveis e taxas justas. Processo rápido e sem complicação."
+                description="Acesse o crédito que você precisa com pagamentos semanais flexíveis e condições justas. Processo rápido e sem complicação."
                 href="/credito-pessoal"
                 buttonText="Saiba Mais"
               />

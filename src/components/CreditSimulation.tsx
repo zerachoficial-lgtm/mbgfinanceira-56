@@ -216,11 +216,11 @@ const CreditSimulation = () => {
                       <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 mt-6">
                         <div className="flex items-center mb-2">
                           <Calendar className="w-5 h-5 text-primary mr-2" />
-                          <span className="font-semibold text-primary">Taxa: 1,5% ao mês</span>
+                          <span className="font-semibold text-primary">Pagamentos Semanais Flexíveis</span>
                         </div>
                         <p className="text-sm text-muted-foreground">
-                          Pagamentos semanais flexíveis que cabem no seu orçamento. 
-                          Sem pegadinhas, sem surpresas.
+                          Valores que cabem no seu orçamento, sem complicação. 
+                          Processo transparente, sem pegadinhas.
                         </p>
                       </div>
                     </div>

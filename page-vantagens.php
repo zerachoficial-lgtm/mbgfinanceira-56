@@ -48,8 +48,8 @@ require_once get_template_directory() . '/inc/components/specialist-consultation
                 <div class="animate-scale-in" style="animation-delay: 0.2s">
                     <?php mbg_feature_card(
                         mbg_get_icon('dollar-sign'),
-                        'Taxas Competitivas',
-                        'As melhores condições do mercado com total transparência.'
+                        'Condições Especiais',
+                        'As melhores oportunidades do mercado com total transparência.'
                     ); ?>
                 </div>
                 <div class="animate-scale-in" style="animation-delay: 0.3s">
@@ -192,7 +192,7 @@ require_once get_template_directory() . '/inc/components/specialist-consultation
                         Clientes com histórico excelente têm acesso a condições especiais e atendimento prioritário.
                     </p>
                     <div class="bg-primary/5 rounded-lg p-4">
-                        <p class="text-sm text-primary font-semibold">Taxas preferenciais</p>
+                        <p class="text-sm text-primary font-semibold">Condições preferenciais</p>
                     </div>
                 </div>
             </div>
@@ -234,7 +234,7 @@ require_once get_template_directory() . '/inc/components/specialist-consultation
                                     <td class="p-4 text-center text-yellow-500">Às vezes</td>
                                 </tr>
                                 <tr class="border-b border-border">
-                                    <td class="p-4 text-muted-foreground">Sem Taxa de Abertura</td>
+                                    <td class="p-4 text-muted-foreground">Sem Custo de Abertura</td>
                                     <td class="p-4 text-center text-green-500">✓</td>
                                     <td class="p-4 text-center text-red-500">✗</td>
                                 </tr>

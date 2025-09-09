@@ -20,8 +20,8 @@ const SpecialistConsultation = () => {
     },
     {
       icon: TrendingUp,
-      title: "Melhores Taxas",
-      description: "Acesso a taxas exclusivas e condições especiais para nossos clientes."
+      title: "Condições Personalizadas",
+      description: "Acesso a condições exclusivas e vantagens especiais para nossos clientes."
     },
     {
       icon: Shield,
