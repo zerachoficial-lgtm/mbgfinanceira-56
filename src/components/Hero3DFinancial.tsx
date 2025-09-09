@@ -46,10 +46,9 @@ const Hero3DFinancial = ({ className }: Hero3DFinancialProps) => {
       // Vertical line
       const lineGeometry = new THREE.CylinderGeometry(0.02, 0.02, 1.5);
       const lineMaterial = new THREE.MeshPhongMaterial({
-        color: 0xF4E4BC, // Subtle pastel gold
+        color: 0xD4AF37,
         transparent: true,
-        opacity: 0.28, // Visible but subtle
-        emissive: 0x1A1611, // Subtle golden glow
+        opacity: 0.8,
       });
       const line = new THREE.Mesh(lineGeometry, lineMaterial);
       group.add(line);
@@ -68,44 +67,41 @@ const Hero3DFinancial = ({ className }: Hero3DFinancialProps) => {
       return group;
     };
 
-    // Create fewer, more subtle dollar signs
-    const dollarCount = isMobile ? 2 : 3;
+    // Create dollar signs
+    const dollarCount = isMobile ? 3 : 5;
     for (let i = 0; i < dollarCount; i++) {
       const dollarSign = createDollarSign();
-      // Position more peripherally and deeper
       dollarSign.position.set(
-        (Math.random() - 0.5) * (isMobile ? 35 : 50),
-        (Math.random() - 0.5) * (isMobile ? 25 : 35),
-        (Math.random() - 0.5) * 6 - 10 // Closer to view
+        (Math.random() - 0.5) * (isMobile ? 20 : 30),
+        (Math.random() - 0.5) * (isMobile ? 15 : 20),
+        (Math.random() - 0.5) * 10 - 8
       );
       dollarSign.rotation.set(
         Math.random() * Math.PI,
         Math.random() * Math.PI,
         Math.random() * Math.PI
       );
-      dollarSign.scale.setScalar(isMobile ? 0.5 : 0.6); // Slightly larger
+      dollarSign.scale.setScalar(isMobile ? 0.5 : 0.8);
       dollarSigns.push(dollarSign);
       scene.add(dollarSign);
     }
 
-    // Create fewer, subtle golden coins
-    const coinGeometry = new THREE.CylinderGeometry(0.4, 0.4, 0.08, 12);
+    // Create golden coins
+    const coinGeometry = new THREE.CylinderGeometry(0.5, 0.5, 0.1, 16);
     const coinMaterial = new THREE.MeshPhongMaterial({
-      color: 0xF4E4BC, // Pastel gold to match dollar signs
+      color: 0xFFD700,
       transparent: true,
-      opacity: 0.22, // Visible but subtle
-      shininess: 40,
-      emissive: 0x0F0D0A, // Subtle golden glow
+      opacity: 0.9,
+      shininess: 100,
     });
 
-    const coinCount = isMobile ? 2 : 3; // Fewer coins
+    const coinCount = isMobile ? 4 : 6;
     for (let i = 0; i < coinCount; i++) {
       const coin = new THREE.Mesh(coinGeometry, coinMaterial);
-      // Position more peripherally and deeper
       coin.position.set(
-        (Math.random() - 0.5) * (isMobile ? 40 : 60),
-        (Math.random() - 0.5) * (isMobile ? 30 : 40),
-        (Math.random() - 0.5) * 8 - 12 // Closer to view
+        (Math.random() - 0.5) * (isMobile ? 25 : 35),
+        (Math.random() - 0.5) * (isMobile ? 18 : 25),
+        (Math.random() - 0.5) * 12 - 10
       );
       coin.rotation.x = Math.random() * Math.PI;
       coin.rotation.z = Math.random() * Math.PI;
@@ -113,44 +109,44 @@ const Hero3DFinancial = ({ className }: Hero3DFinancialProps) => {
       scene.add(coin);
     }
 
-    // Minimal particle system (very subtle sparkles)
-    const particleCount = isMobile ? 8 : 12; // Much fewer particles
+    // Particle system (golden sparkles)
+    const particleCount = isMobile ? 30 : 60;
     const particleGeometry = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
 
     for (let i = 0; i < particleCount * 3; i += 3) {
-      particlePositions[i] = (Math.random() - 0.5) * (isMobile ? 50 : 70);
-      particlePositions[i + 1] = (Math.random() - 0.5) * (isMobile ? 35 : 50);
-      particlePositions[i + 2] = (Math.random() - 0.5) * 10 - 15; // Closer
+      particlePositions[i] = (Math.random() - 0.5) * (isMobile ? 30 : 40);
+      particlePositions[i + 1] = (Math.random() - 0.5) * (isMobile ? 20 : 30);
+      particlePositions[i + 2] = (Math.random() - 0.5) * 15 - 12;
     }
 
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
     
     const particleMaterial = new THREE.PointsMaterial({
-      color: 0xF4E4BC, // Match the pastel gold
-      size: isMobile ? 0.8 : 1.2, // Slightly larger
+      color: 0xFFD700,
+      size: isMobile ? 1 : 2,
       transparent: true,
-      opacity: 0.18, // Visible but subtle
+      opacity: 0.6,
       blending: THREE.AdditiveBlending,
     });
 
     const particles = new THREE.Points(particleGeometry, particleMaterial);
     scene.add(particles);
 
-    // Subtle but visible lighting
-    const ambientLight = new THREE.AmbientLight(0x404040, 0.3); // Enhanced intensity
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0x404040, 0.4);
     scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight(0xF4E4BC, 0.4); // Stronger golden light
+    const directionalLight = new THREE.DirectionalLight(0xD4AF37, 0.8);
     directionalLight.position.set(5, 5, 5);
     scene.add(directionalLight);
 
-    // Subtle rim lighting for depth
-    const rimLight = new THREE.DirectionalLight(0xF4E4BC, 0.2); // Enhanced
+    // Add subtle rim lighting
+    const rimLight = new THREE.DirectionalLight(0xFFD700, 0.3);
     rimLight.position.set(-5, -5, 5);
     scene.add(rimLight);
 
-    camera.position.z = isMobile ? 25 : 22; // Further back
+    camera.position.z = isMobile ? 18 : 15;
 
     // Mouse tracking
     let mouseX = 0;
@@ -181,29 +177,28 @@ const Hero3DFinancial = ({ className }: Hero3DFinancialProps) => {
 
       const time = Date.now() * 0.001;
 
-      // Subtle dollar sign animation - visible but gentle
+      // Animate dollar signs
       dollarSigns.forEach((dollarSign, index) => {
-        dollarSign.rotation.y += 0.003 + index * 0.0005; // Slightly faster
-        dollarSign.rotation.z += 0.002; // More visible rotation
-        dollarSign.position.y += Math.sin(time + index * 2) * 0.003; // Gentle floating
+        dollarSign.rotation.y += 0.005 + index * 0.001;
+        dollarSign.rotation.z += 0.003;
+        dollarSign.position.y += Math.sin(time + index * 2) * 0.005;
       });
 
-      // Subtle coin animation - visible gentle movement
+      // Animate coins (spinning like real coins)
       coins.forEach((coin, index) => {
-        coin.rotation.y += 0.008 + index * 0.002; // More visible rotation
-        coin.rotation.x += 0.005; // Gentle tumbling
-        coin.position.y += Math.sin(time * 0.5 + index * 3) * 0.005; // Gentle floating
+        coin.rotation.y += 0.02 + index * 0.005;
+        coin.rotation.x += 0.01;
+        coin.position.y += Math.sin(time * 0.5 + index * 3) * 0.008;
       });
 
-      // Subtle particle animation with gentle sparkle
-      particles.rotation.y += 0.002; // More visible rotation
-      // Gentle sparkle effect
-      (particles.material as THREE.PointsMaterial).opacity = 0.18 + Math.sin(time * 2) * 0.05;
+      // Particle sparkle animation
+      particles.rotation.y += 0.002;
+      particles.material.opacity = 0.4 + Math.sin(time * 2) * 0.2;
 
       // Subtle parallax effect
-      const parallaxStrength = isMobile ? 0.15 : 0.2; // More responsive
-      camera.position.x += (mouseX * parallaxStrength - camera.position.x) * 0.01;
-      camera.position.y += (mouseY * parallaxStrength - camera.position.y) * 0.01;
+      const parallaxStrength = isMobile ? 0.3 : 0.5;
+      camera.position.x += (mouseX * parallaxStrength - camera.position.x) * 0.03;
+      camera.position.y += (mouseY * parallaxStrength - camera.position.y) * 0.03;
       camera.lookAt(scene.position);
 
       renderer.render(scene, camera);
