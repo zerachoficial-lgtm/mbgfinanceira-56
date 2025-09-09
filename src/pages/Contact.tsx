@@ -13,12 +13,46 @@ const Contact = () => {
     subject: "",
     message: ""
   });
+  const [webhookUrl, setWebhookUrl] = useState<string>(localStorage.getItem("zapier_webhook") || "");
+  const [isSending, setIsSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simular envio do formulário
-    toast.success("Mensagem enviada com sucesso! Entraremos em contato em breve.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    try {
+      setIsSending(true);
+
+      const payload = {
+        timestamp: new Date().toISOString(),
+        triggered_from: window.location.origin + window.location.pathname,
+        target_email: "contato@mbgfinanceira.com.br",
+        data: { ...formData }
+      };
+
+      if (webhookUrl) {
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          mode: "no-cors",
+          body: JSON.stringify(payload)
+        });
+        toast.success("Solicitação enviada ao Zapier. Verifique o histórico do seu Zap.");
+      } else {
+        const subject = encodeURIComponent(`[Contato MBG] ${formData.subject || "Nova mensagem"}`);
+        const body = encodeURIComponent(
+          `Nome: ${formData.name}\nE-mail: ${formData.email}\nAssunto: ${formData.subject}\n\nMensagem:\n${formData.message}\n\nEnviado em: ${new Date().toLocaleString()}`
+        );
+        window.location.href = `mailto:contato@mbgfinanceira.com.br?subject=${subject}&body=${body}`;
+        toast.success("Abrindo seu aplicativo de e-mail...");
+      }
+
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Erro ao enviar mensagem:", error);
+      toast.error("Falha ao enviar. Tente novamente.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -26,6 +60,11 @@ const Contact = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleWebhookChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setWebhookUrl(e.target.value);
+    localStorage.setItem("zapier_webhook", e.target.value);
   };
 
   return (
@@ -130,6 +169,20 @@ const Contact = () => {
                   <h3 className="text-2xl font-semibold text-primary">Envie uma Mensagem</h3>
                 </div>
 
+                {/* Integração Zapier (opcional) */}
+                <div className="mb-6 p-4 bg-secondary/10 border border-border rounded-md">
+                  <label htmlFor="zapierWebhook" className="block text-sm font-medium text-primary mb-2">Zapier Webhook (opcional)</label>
+                  <input
+                    id="zapierWebhook"
+                    type="url"
+                    value={webhookUrl}
+                    onChange={handleWebhookChange}
+                    placeholder="Cole aqui sua URL de webhook do Zapier"
+                    className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  />
+                  <p className="text-xs text-muted-foreground mt-2">Se preenchido, enviaremos os dados do formulário para o seu Zap. Caso contrário, abriremos seu e-mail para contato@mbgfinanceira.com.br.</p>
+                </div>
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-primary mb-2">
@@ -200,8 +253,8 @@ const Contact = () => {
                     />
                   </div>
 
-                  <MBGButton type="submit" className="w-full">
-                    Enviar Mensagem
+                  <MBGButton type="submit" className="w-full" disabled={isSending}>
+                    {isSending ? "Enviando..." : "Enviar Mensagem"}
                   </MBGButton>
                 </form>
               </div>
