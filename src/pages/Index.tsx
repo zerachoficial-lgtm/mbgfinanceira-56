@@ -15,7 +15,6 @@ import ServiceCard from "@/components/ServiceCard";
 import FeatureCard from "@/components/FeatureCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import SpecialistConsultation from "@/components/SpecialistConsultation";
-import Hero3DFinancial from "@/components/Hero3DFinancial";
 import Hero3DFinancialParticles from "@/components/Hero3DFinancialParticles";
 import { MBGButton } from "@/components/ui/mbg-button";
 import { useStaggeredAnimation } from "@/hooks/useScrollAnimation";
@@ -50,7 +49,6 @@ const Index = () => {
           {/* Premium Border Shine */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent animate-ping opacity-30" style={{animationDuration: '6s'}}></div>
         </div>
-        <Hero3DFinancial className="z-1" />
         <div className="container relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="mb-6 animate-fade-in-up">
