@@ -15,7 +15,7 @@ import ServiceCard from "@/components/ServiceCard";
 import FeatureCard from "@/components/FeatureCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import SpecialistConsultation from "@/components/SpecialistConsultation";
-import FinanceAnimationBackground from "@/components/FinanceAnimationBackground";
+import Hero3DFinancial from "@/components/Hero3DFinancial";
 import { MBGButton } from "@/components/ui/mbg-button";
 import { useStaggeredAnimation } from "@/hooks/useScrollAnimation";
 import heroBackground from "@/assets/hero-bg-professional.jpg";
@@ -40,8 +40,15 @@ const Index = () => {
           {/* Premium Golden Effect */}
           <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-yellow-400/5 to-orange-500/10 animate-pulse"></div>
           
-          {/* 3D Dollar Sign Particles */}
-          <FinanceAnimationBackground />
+          {/* Floating Golden Particles */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full opacity-70 animate-bounce" style={{animationDelay: '0s', animationDuration: '3s'}}></div>
+            <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full opacity-60 animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}}></div>
+            <div className="absolute top-2/3 left-1/3 w-1 h-1 bg-gradient-to-r from-yellow-500 to-orange-400 rounded-full opacity-50 animate-bounce" style={{animationDelay: '2s', animationDuration: '5s'}}></div>
+            <div className="absolute top-1/2 right-1/3 w-2.5 h-2.5 bg-gradient-to-r from-amber-300 to-yellow-400 rounded-full opacity-40 animate-bounce" style={{animationDelay: '0.5s', animationDuration: '3.5s'}}></div>
+            <div className="absolute top-3/4 left-1/2 w-1.5 h-1.5 bg-gradient-to-r from-yellow-400 to-amber-600 rounded-full opacity-65 animate-bounce" style={{animationDelay: '1.5s', animationDuration: '4.5s'}}></div>
+            <div className="absolute top-1/6 right-1/2 w-1 h-1 bg-gradient-to-r from-orange-400 to-yellow-500 rounded-full opacity-55 animate-bounce" style={{animationDelay: '2.5s', animationDuration: '3.2s'}}></div>
+          </div>
           
           {/* Luxury Glow Effect */}
           <div className="absolute inset-0 bg-gradient-radial from-amber-400/5 via-transparent to-transparent animate-pulse" style={{animationDuration: '4s'}}></div>
@@ -49,6 +56,7 @@ const Index = () => {
           {/* Premium Border Shine */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent animate-ping opacity-30" style={{animationDuration: '6s'}}></div>
         </div>
+        <Hero3DFinancial className="z-1" />
         <div className="container relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="mb-6 animate-fade-in-up">
