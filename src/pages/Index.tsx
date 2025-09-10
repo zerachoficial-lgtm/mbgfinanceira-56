@@ -15,7 +15,7 @@ import ServiceCard from "@/components/ServiceCard";
 import FeatureCard from "@/components/FeatureCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import SpecialistConsultation from "@/components/SpecialistConsultation";
-import Hero3DFinancialParticles from "@/components/Hero3DFinancialParticles";
+import FinanceAnimationBackground from "@/components/FinanceAnimationBackground";
 import { MBGButton } from "@/components/ui/mbg-button";
 import { useStaggeredAnimation } from "@/hooks/useScrollAnimation";
 import heroBackground from "@/assets/hero-bg-professional.jpg";
@@ -41,7 +41,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-yellow-400/5 to-orange-500/10 animate-pulse"></div>
           
           {/* 3D Dollar Sign Particles */}
-          <Hero3DFinancialParticles />
+          <FinanceAnimationBackground />
           
           {/* Luxury Glow Effect */}
           <div className="absolute inset-0 bg-gradient-radial from-amber-400/5 via-transparent to-transparent animate-pulse" style={{animationDuration: '4s'}}></div>
