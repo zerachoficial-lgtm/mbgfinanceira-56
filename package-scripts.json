@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "build-and-prepare": "npm run build && echo 'Build completed! Files ready in dist/ folder.' && echo 'Upload the contents of dist/ folder to your Hostinger public_html directory.' && echo 'Don't forget to upload the .htaccess file to the root!'"
+  }
+}

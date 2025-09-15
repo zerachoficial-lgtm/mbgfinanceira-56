@@ -18,6 +18,7 @@ import SpecialistConsultation from "@/components/SpecialistConsultation";
 import Hero3DFinancial from "@/components/Hero3DFinancial";
 import { MBGButton } from "@/components/ui/mbg-button";
 import { useStaggeredAnimation } from "@/hooks/useScrollAnimation";
+import { TESTIMONIALS } from "@/lib/constants";
 import heroBackground from "@/assets/hero-bg-professional.jpg";
 
 const Index = () => {
@@ -168,30 +169,16 @@ const Index = () => {
           </div>
           
           <div ref={testimonialsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className={`${visibleTestimonials.includes(0) ? 'animate-fade-in-up animate-hover-lift' : 'opacity-0'}`}>
-              <TestimonialCard
-                name="Maria Silva"
-                location="São Paulo, SP"
-                testimonial="A MBG me ajudou em um momento muito difícil. O processo foi rápido e sem burocracia. Recomendo de olhos fechados!"
-                rating={5}
-              />
-            </div>
-            <div className={`${visibleTestimonials.includes(1) ? 'animate-fade-in-up animate-hover-lift' : 'opacity-0'}`}>
-              <TestimonialCard
-                name="João Santos"
-                location="Guarulhos, SP"
-                testimonial="Excelente atendimento e condições justas. Com a poupança especial consegui multiplicar minha reserva de emergência."
-                rating={5}
-              />
-            </div>
-            <div className={`${visibleTestimonials.includes(2) ? 'animate-fade-in-up animate-hover-lift' : 'opacity-0'}`}>
-              <TestimonialCard
-                name="Ana Costa"
-                location="Osasco, SP"
-                testimonial="Transparência total e pagamentos semanais que cabem no meu orçamento. A MBG realmente pensa no cliente."
-                rating={5}
-              />
-            </div>
+            {TESTIMONIALS.map((testimonial, index) => (
+              <div key={testimonial.id} className={`${visibleTestimonials.includes(index) ? 'animate-fade-in-up animate-hover-lift' : 'opacity-0'}`}>
+                <TestimonialCard
+                  name={testimonial.name}
+                  location={testimonial.location}
+                  testimonial={testimonial.content}
+                  rating={testimonial.rating}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

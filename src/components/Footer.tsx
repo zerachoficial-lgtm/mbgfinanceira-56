@@ -1,5 +1,7 @@
 import { Instagram, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { COMPANY_INFO } from "@/lib/constants";
+import { generateWhatsAppUrl, getWhatsAppMessage } from "@/lib/whatsapp";
 const Footer = () => {
   return <footer className="bg-card border-t border-border">
       <div className="container py-12">
@@ -16,8 +18,8 @@ const Footer = () => {
               Crédito simples e poupança segura com total transparência.
             </p>
             <div className="text-sm text-muted-foreground">
-              <p>MBG Intermediações e Finanças LTDA</p>
-              <p>CNPJ: 62.051.162/0001-06</p>
+              <p>{COMPANY_INFO.name}</p>
+              <p>CNPJ: {COMPANY_INFO.cnpj}</p>
             </div>
           </div>
 
@@ -40,18 +42,18 @@ const Footer = () => {
             <ul className="space-y-3 text-muted-foreground">
               <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-primary" />
-                <a href="https://wa.me/5511978419191" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                  +55 11 97841-9191
+                <a href={generateWhatsAppUrl(getWhatsAppMessage('contact'))} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  {COMPANY_INFO.phone}
                 </a>
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>Rua Aparecida, 164 - Canindé/SP</span>
+                <span>{COMPANY_INFO.address}</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Instagram className="w-4 h-4 text-primary" />
-                <a href="https://instagram.com/mbg.financeira" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                  @mbg.financeira
+                <a href={`https://instagram.com/${COMPANY_INFO.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  {COMPANY_INFO.instagram}
                 </a>
               </li>
             </ul>
@@ -59,7 +61,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground text-sm">
-          <p>&copy; 2024 MBG Intermediações e Finanças LTDA. Todos os direitos reservados.</p>
+          <p>&copy; 2024 {COMPANY_INFO.name}. Todos os direitos reservados.</p>
           <p className="mt-2">
             Desenvolvido com 💛 para transformar vidas através de soluções financeiras inteligentes.
           </p>

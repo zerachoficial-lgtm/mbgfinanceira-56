@@ -1,6 +1,7 @@
 import { X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { generateWhatsAppUrl, getWhatsAppMessage } from "@/lib/whatsapp";
 import specialistAvatar from "@/assets/specialist-avatar.jpg";
 
 const FloatingWhatsApp = () => {
@@ -8,7 +9,8 @@ const FloatingWhatsApp = () => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/5511978419191", "_blank");
+    const whatsappUrl = generateWhatsAppUrl(getWhatsAppMessage('default'));
+    window.open(whatsappUrl, "_blank");
   };
 
   return (
